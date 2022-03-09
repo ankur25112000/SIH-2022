@@ -18,7 +18,8 @@ def home(request):
     if request.user.is_authenticated:
         return render(request, 'chat.html', ctx)
     else:
-        return render(request, 'base.html', None)
+        # return render(request, 'base.html', None)
+        return render(request, 'index.html', None)
 
 
 def upload(request):
