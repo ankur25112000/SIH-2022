@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
+from chat.models import Contact
+
 
 def home(request):
     chats = Chat.objects.all()
@@ -18,8 +20,27 @@ def home(request):
     if request.user.is_authenticated:
         return render(request, 'chat.html', ctx)
     else:
+        if request.method == 'POST':
+            name = request.POST['name']
+            subject = request.POST['subject']
+            mail = request.POST['mail']
+            message = request.POST['message']
+            contact = Contact(name=name, mail=mail,subject=subject, message=message)
+            contact.save()
         # return render(request, 'base.html', None)
         return render(request, 'index.html', None)
+       
+# def main(request):
+#     if request.method == 'POST':
+#         name = request.POST['name']
+#         subject = request.POST['subject']
+#         mail = request.POST['mail']
+#         message = request.POST['message']
+#         contact = Contact(name=name, mail=mail,subject=subject, message=message)
+#         contact.save()
+#             # return render(request,'doctor/index.html')
+#         return render(request, 'index.html', None)
+#     return render(request, 'index.html', None)
 
 
 def upload(request):
@@ -60,3 +81,5 @@ def post(request):
 def messages(request):
     chat = Chat.objects.all()
     return render(request, 'messages.html', {'chat': chat})
+
+

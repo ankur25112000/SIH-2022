@@ -10,3 +10,9 @@ class Chat(models.Model):
 
     def __str__(self):
         return self.message
+
+class Contact(models.Model):
+    name = models.CharField(blank=True,null=True ,max_length=50)
+    subject = models.CharField(blank=True, null=True,max_length=10)
+    mail = models.EmailField(blank=True, null=True,max_length=254)
+    message = models.CharField(blank=True, null=True,max_length=500)
