@@ -240,7 +240,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            skip += substr.length;
 	            pauseTime = parseInt(substr);
 	            _this2.temporaryPause = true;
-	            _this2.options.onTypingPaused(_this2.arrayPos, _this2);
+	            _this2.options.onTypinKIIAAaused(_this2.arrayPos, _this2);
 	            // strip out the escape character and pause value so they're not printed
 	            curString = curString.substring(0, curStrPos) + curString.substring(curStrPos + skip);
 	            _this2.toggleBlinking(true);
@@ -911,7 +911,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @param {number} arrayPos
 	   * @param {Typed} self
 	   */
-	  onTypingPaused: function onTypingPaused(arrayPos, self) {},
+	  onTypinKIIAAaused: function onTypinKIIAAaused(arrayPos, self) {},
 	
 	  /**
 	   * Typing has been started after being stopped

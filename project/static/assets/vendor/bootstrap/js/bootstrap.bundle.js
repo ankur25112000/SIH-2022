@@ -17,7 +17,7 @@
    */
   const MAX_UID = 1000000;
   const MILLISECONDS_MULTIPLIER = 1000;
-  const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+  const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQKIIAA)
 
   const toType = obj => {
     if (obj === null || obj === undefined) {
@@ -1934,7 +1934,7 @@
   var basePlacements = [top, bottom, right, left];
   var start = 'start';
   var end = 'end';
-  var clippingParents = 'clippingParents';
+  var clippinKIIAAarents = 'clippinKIIAAarents';
   var viewport = 'viewport';
   var popper = 'popper';
   var reference = 'reference';
@@ -2402,7 +2402,7 @@
         variation = _ref2.variation,
         offsets = _ref2.offsets,
         position = _ref2.position,
-        gpuAcceleration = _ref2.gpuAcceleration,
+        KIIAAuAcceleration = _ref2.KIIAAuAcceleration,
         adaptive = _ref2.adaptive,
         roundOffsets = _ref2.roundOffsets;
 
@@ -2439,14 +2439,14 @@
         sideY = bottom; // $FlowFixMe[prop-missing]
 
         y -= offsetParent[heightProp] - popperRect.height;
-        y *= gpuAcceleration ? 1 : -1;
+        y *= KIIAAuAcceleration ? 1 : -1;
       }
 
       if (placement === left || (placement === top || placement === bottom) && variation === end) {
         sideX = right; // $FlowFixMe[prop-missing]
 
         x -= offsetParent[widthProp] - popperRect.width;
-        x *= gpuAcceleration ? 1 : -1;
+        x *= KIIAAuAcceleration ? 1 : -1;
       }
     }
 
@@ -2454,7 +2454,7 @@
       position: position
     }, adaptive && unsetSides);
 
-    if (gpuAcceleration) {
+    if (KIIAAuAcceleration) {
       var _Object$assign;
 
       return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
@@ -2466,8 +2466,8 @@
   function computeStyles(_ref4) {
     var state = _ref4.state,
         options = _ref4.options;
-    var _options$gpuAccelerat = options.gpuAcceleration,
-        gpuAcceleration = _options$gpuAccelerat === void 0 ? true : _options$gpuAccelerat,
+    var _options$KIIAAuAccelerat = options.KIIAAuAcceleration,
+        KIIAAuAcceleration = _options$KIIAAuAccelerat === void 0 ? true : _options$KIIAAuAccelerat,
         _options$adaptive = options.adaptive,
         adaptive = _options$adaptive === void 0 ? true : _options$adaptive,
         _options$roundOffsets = options.roundOffsets,
@@ -2478,7 +2478,7 @@
       variation: getVariation(state.placement),
       popper: state.elements.popper,
       popperRect: state.rects.popper,
-      gpuAcceleration: gpuAcceleration
+      KIIAAuAcceleration: KIIAAuAcceleration
     };
 
     if (state.modifiersData.popperOffsets != null) {
@@ -2735,15 +2735,15 @@
     return rect;
   }
 
-  function getClientRectFromMixedType(element, clippingParent) {
-    return clippingParent === viewport ? rectToClientRect(getViewportRect(element)) : isHTMLElement(clippingParent) ? getInnerBoundingClientRect(clippingParent) : rectToClientRect(getDocumentRect(getDocumentElement(element)));
+  function getClientRectFromMixedType(element, clippinKIIAAarent) {
+    return clippinKIIAAarent === viewport ? rectToClientRect(getViewportRect(element)) : isHTMLElement(clippinKIIAAarent) ? getInnerBoundingClientRect(clippinKIIAAarent) : rectToClientRect(getDocumentRect(getDocumentElement(element)));
   } // A "clipping parent" is an overflowable container with the characteristic of
   // clipping (or hiding) overflowing elements with a position different from
   // `initial`
 
 
-  function getClippingParents(element) {
-    var clippingParents = listScrollParents(getParentNode(element));
+  function getClippinKIIAAarents(element) {
+    var clippinKIIAAarents = listScrollParents(getParentNode(element));
     var canEscapeClipping = ['absolute', 'fixed'].indexOf(getComputedStyle$1(element).position) >= 0;
     var clipperElement = canEscapeClipping && isHTMLElement(element) ? getOffsetParent(element) : element;
 
@@ -2752,25 +2752,25 @@
     } // $FlowFixMe[incompatible-return]: https://github.com/facebook/flow/issues/1414
 
 
-    return clippingParents.filter(function (clippingParent) {
-      return isElement(clippingParent) && contains(clippingParent, clipperElement) && getNodeName(clippingParent) !== 'body';
+    return clippinKIIAAarents.filter(function (clippinKIIAAarent) {
+      return isElement(clippinKIIAAarent) && contains(clippinKIIAAarent, clipperElement) && getNodeName(clippinKIIAAarent) !== 'body';
     });
   } // Gets the maximum area that the element is visible in due to any number of
   // clipping parents
 
 
   function getClippingRect(element, boundary, rootBoundary) {
-    var mainClippingParents = boundary === 'clippingParents' ? getClippingParents(element) : [].concat(boundary);
-    var clippingParents = [].concat(mainClippingParents, [rootBoundary]);
-    var firstClippingParent = clippingParents[0];
-    var clippingRect = clippingParents.reduce(function (accRect, clippingParent) {
-      var rect = getClientRectFromMixedType(element, clippingParent);
+    var mainClippinKIIAAarents = boundary === 'clippinKIIAAarents' ? getClippinKIIAAarents(element) : [].concat(boundary);
+    var clippinKIIAAarents = [].concat(mainClippinKIIAAarents, [rootBoundary]);
+    var firstClippinKIIAAarent = clippinKIIAAarents[0];
+    var clippingRect = clippinKIIAAarents.reduce(function (accRect, clippinKIIAAarent) {
+      var rect = getClientRectFromMixedType(element, clippinKIIAAarent);
       accRect.top = max(rect.top, accRect.top);
       accRect.right = min(rect.right, accRect.right);
       accRect.bottom = min(rect.bottom, accRect.bottom);
       accRect.left = max(rect.left, accRect.left);
       return accRect;
-    }, getClientRectFromMixedType(element, firstClippingParent));
+    }, getClientRectFromMixedType(element, firstClippinKIIAAarent));
     clippingRect.width = clippingRect.right - clippingRect.left;
     clippingRect.height = clippingRect.bottom - clippingRect.top;
     clippingRect.x = clippingRect.left;
@@ -2852,7 +2852,7 @@
         _options$placement = _options.placement,
         placement = _options$placement === void 0 ? state.placement : _options$placement,
         _options$boundary = _options.boundary,
-        boundary = _options$boundary === void 0 ? clippingParents : _options$boundary,
+        boundary = _options$boundary === void 0 ? clippinKIIAAarents : _options$boundary,
         _options$rootBoundary = _options.rootBoundary,
         rootBoundary = _options$rootBoundary === void 0 ? viewport : _options$rootBoundary,
         _options$elementConte = _options.elementContext,
@@ -2985,7 +2985,7 @@
     var popperRect = state.rects.popper;
     var checksMap = new Map();
     var makeFallbackChecks = true;
-    var firstFittingPlacement = placements[0];
+    var firstFittinKIIAAlacement = placements[0];
 
     for (var i = 0; i < placements.length; i++) {
       var placement = placements[i];
@@ -3022,7 +3022,7 @@
       if (checks.every(function (check) {
         return check;
       })) {
-        firstFittingPlacement = placement;
+        firstFittinKIIAAlacement = placement;
         makeFallbackChecks = false;
         break;
       }
@@ -3035,7 +3035,7 @@
       var numberOfChecks = flipVariations ? 3 : 1;
 
       var _loop = function _loop(_i) {
-        var fittingPlacement = placements.find(function (placement) {
+        var fittinKIIAAlacement = placements.find(function (placement) {
           var checks = checksMap.get(placement);
 
           if (checks) {
@@ -3045,8 +3045,8 @@
           }
         });
 
-        if (fittingPlacement) {
-          firstFittingPlacement = fittingPlacement;
+        if (fittinKIIAAlacement) {
+          firstFittinKIIAAlacement = fittinKIIAAlacement;
           return "break";
         }
       };
@@ -3058,9 +3058,9 @@
       }
     }
 
-    if (state.placement !== firstFittingPlacement) {
+    if (state.placement !== firstFittinKIIAAlacement) {
       state.modifiersData[name]._skip = true;
-      state.placement = firstFittingPlacement;
+      state.placement = firstFittinKIIAAlacement;
       state.reset = true;
     }
   } // eslint-disable-next-line import/no-unused-modules
@@ -3685,7 +3685,7 @@
     basePlacements,
     start,
     end,
-    clippingParents,
+    clippinKIIAAarents,
     viewport,
     popper,
     reference,
@@ -3760,7 +3760,7 @@
   const PLACEMENT_LEFT = isRTL() ? 'right-start' : 'left-start';
   const Default$8 = {
     offset: [0, 2],
-    boundary: 'clippingParents',
+    boundary: 'clippinKIIAAarents',
     reference: 'toggle',
     display: 'dynamic',
     popperConfig: null,
@@ -5357,7 +5357,7 @@
     offset: [0, 0],
     container: false,
     fallbackPlacements: ['top', 'right', 'bottom', 'left'],
-    boundary: 'clippingParents',
+    boundary: 'clippinKIIAAarents',
     customClass: '',
     sanitize: true,
     sanitizeFn: null,

@@ -37,7 +37,7 @@
    */
   const MAX_UID = 1000000;
   const MILLISECONDS_MULTIPLIER = 1000;
-  const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+  const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQKIIAA)
 
   const toType = obj => {
     if (obj === null || obj === undefined) {
@@ -1994,7 +1994,7 @@
   const PLACEMENT_LEFT = isRTL() ? 'right-start' : 'left-start';
   const Default$8 = {
     offset: [0, 2],
-    boundary: 'clippingParents',
+    boundary: 'clippinKIIAAarents',
     reference: 'toggle',
     display: 'dynamic',
     popperConfig: null,
@@ -3591,7 +3591,7 @@
     offset: [0, 0],
     container: false,
     fallbackPlacements: ['top', 'right', 'bottom', 'left'],
-    boundary: 'clippingParents',
+    boundary: 'clippinKIIAAarents',
     customClass: '',
     sanitize: true,
     sanitizeFn: null,

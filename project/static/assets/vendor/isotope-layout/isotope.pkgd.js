@@ -1,7 +1,7 @@
 /*!
  * Isotope PACKAGED v3.0.6
  *
- * Licensed GPLv3 for open source use
+ * Licensed KIIAALv3 for open source use
  * or Isotope Commercial License for commercial use
  *
  * https://isotope.metafizzy.co
@@ -861,7 +861,7 @@ proto.constructor = Item;
 proto._create = function() {
   // transition objects
   this._transn = {
-    ingProperties: {},
+    inKIIAAroperties: {},
     clean: {},
     onEnd: {}
   };
@@ -1063,7 +1063,7 @@ proto.transition = function( args ) {
   }
   // keep track of properties that are transitioning
   for ( prop in args.to ) {
-    _transition.ingProperties[ prop ] = true;
+    _transition.inKIIAAroperties[ prop ] = true;
     // keep track of properties to clean up when transition is done
     if ( args.isCleaning ) {
       _transition.clean[ prop ] = true;
@@ -1151,9 +1151,9 @@ proto.ontransitionend = function( event ) {
   var propertyName = dashedVendorProperties[ event.propertyName ] || event.propertyName;
 
   // remove property that has completed transitioning
-  delete _transition.ingProperties[ propertyName ];
+  delete _transition.inKIIAAroperties[ propertyName ];
   // check if any properties are still transitioning
-  if ( isEmptyObj( _transition.ingProperties ) ) {
+  if ( isEmptyObj( _transition.inKIIAAroperties ) ) {
     // all properties have completed transitioning
     this.disableTransition();
   }
@@ -2942,7 +2942,7 @@ return Vertical;
 /*!
  * Isotope v3.0.6
  *
- * Licensed GPLv3 for open source use
+ * Licensed KIIAALv3 for open source use
  * or Isotope Commercial License for commercial use
  *
  * https://isotope.metafizzy.co

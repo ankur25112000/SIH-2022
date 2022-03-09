@@ -4929,12 +4929,12 @@
         <path fill="none" d="M0 0h24v24H0z"/>
         <path d="M20 6h3v2h-1v11h1v2H1v-2h1V8H1V6h3V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2zm0 2H4v11h3v-7h2v7h2v-7h2v7h2v-7h2v7h3V8zM6 5v1h12V5H6z"/>
     </g>
-</symbol><symbol viewBox="0 0 24 24" id="ri-gps-fill">
+</symbol><symbol viewBox="0 0 24 24" id="ri-KIIAAs-fill">
     <g>
         <path fill="none" d="M0 0h24v24H0z"/>
         <path d="M12 16l3 6H9l3-6zm-2.627.255a5 5 0 1 1 5.255 0l-1.356-2.711a2 2 0 1 0-2.544 0l-1.355 2.71zm-2.241 4.482A9.997 9.997 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10a9.997 9.997 0 0 1-5.132 8.737l-1.343-2.688a7 7 0 1 0-7.05 0l-1.343 2.688z"/>
     </g>
-</symbol><symbol viewBox="0 0 24 24" id="ri-gps-line">
+</symbol><symbol viewBox="0 0 24 24" id="ri-KIIAAs-line">
     <g>
         <path fill="none" d="M0 0h24v24H0z"/>
         <path d="M7.132 20.737A9.997 9.997 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10a9.997 9.997 0 0 1-5.132 8.737l-.896-1.791a8 8 0 1 0-7.945 0l-.895 1.791zm1.792-3.584a6 6 0 1 1 6.151 0l-.898-1.797a4 4 0 1 0-4.354 0l-.899 1.797zM12 16l3 6H9l3-6z"/>
