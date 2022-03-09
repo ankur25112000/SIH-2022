@@ -29,6 +29,8 @@
   <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
@@ -63,7 +65,7 @@
       </nav><!-- .navbar -->
 
       <a href="/accounts/login/" class="get-started-btn ">Login</a>
-      <a href="/accounts/signup/" class="get-started-btn scrollto">Register</a>
+      {% comment %} <a href="/accounts/signup/" class="get-started-btn scrollto">Register</a> {% endcomment %}
 
     </div>
   </header><!-- End Header -->
@@ -674,8 +676,20 @@
           <p>Contact Us</p>
         </div>
 
-        <div>
-          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        <div class="mapclass mb-5" id='map' style='width: 100%; height: 500px;'>
+          <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYW5rdXIyNTExIiwiYSI6ImNrb2g5Z2Z6ejBuaTYzMmxjODd3ZnFnazkifQ.huFPLhgyH_XiXcrIkvv0pw';
+            var map = new mapboxgl.Map({
+                container: 'map', // container ID
+                style: 'mapbox://styles/mapbox/streets-v11', // style URL
+                center: [76.3647,30.3564], // starting position [lng, lat]
+                zoom: 14// starting zoom
+            });
+            var marker = new mapboxgl.Marker()
+              .setLngLat([76.3647,30.3564])
+              .addTo(map);
+            </script>
+          {% comment %} <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe> {% endcomment %}
         </div>
 
         <div class="row mt-5">
@@ -827,7 +841,40 @@
   <script src="{% static 'assets/vendor/typed.js/typed.min.js' %}"></script>
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
-
+  <script>
+    function initMap() {
+      var uluru = {
+        lat: 30.21,
+          lng: 76.21
+      };
+      var grayStyles = [{
+        featureType: "all",
+        stylers: [{
+          saturation: -90
+        },
+        {
+          lightness: 50
+        }
+        ]
+      },
+      {
+        elementType: 'labels.text.fill',
+        stylers: [{
+          color: '#ccdee9'
+        }]
+      }
+      ];
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: 30.21,
+              lng: 76.21
+        },
+        zoom: 9,
+        styles: grayStyles,
+        scrollwheel: false
+      });
+    }
+  </script>
 </body>
 
 </html>
