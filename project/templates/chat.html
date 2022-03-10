@@ -2,14 +2,14 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-lg-2" style="margin-left: 20px; padding: 10px ; border: solid darkblue">
+        <div class="col-lg-2" style="margin-left: 20px; padding: 10px ; border: solid rgb(0, 0, 0)">
         <div class="container" >
         {% if user.is_authenticated %}
             <p style="color: black; font-size: 18px">
-                    Username: <b style="color: white;">{{ user.username }}</b>
+                    Username: <b style="color: #f5bc4e;">{{ user.username }}</b>
             </p>
             <p style="color: black; font-size: 18px">
-                    Total Messages:  <b style="color: white;">{{ chat|length }}</b>
+                    Total Messages:  <b style="color: #f5bc4e;">{{ chat|length }}</b>
             </p>
 
             <br>
@@ -20,7 +20,7 @@
 
             {% for obj in allusers %}
                 <p>
-                    User Name:  <b style="color: white;">{{ obj.username }}</b>
+                    User Name:  <b style="color: #f5bc4e;">{{ obj.username }}</b>
                 </p>
             {% endfor %}
 
@@ -30,7 +30,7 @@
         <div class="col-lg-8">
         <div class="container">
             <div id="chat-body" class="panel panel-default">
-                <div class="panel-heading" style="color: white; background: darkblue">Speech to text Chat Box</div>
+                <div class="panel-heading" style="color: #f5bc4e; background: black">Speech to text Chat Box</div>
                 <div id="msg-list-div" class="panel-body">
                     <ul id="msg-list" class="list-group">
                         {% for obj in chat %}
@@ -54,11 +54,11 @@
             <form id="chat-form" method="post" action="{% url 'chat:post' %}" >
                 {% csrf_token %}
                 <div id="chat-bottom" class="input-group">
-    {#                <input type="text" style="border: solid darkblue" id="chat-msg" name="chat-msg" class="form-control"/>#}
+    {#                <input type="text" style="border: solid rgb(0, 0, 0)" id="chat-msg" name="chat-msg" class="form-control"/>#}
                     <textarea id="chat-msg" name="chat-msg" class="form-control" />
                     </textarea>
                     <span class="input-group-btn">
-                    <input class="btn btn-default" id="send" type="submit" style="color: darkblue; padding: 16px" value="Send"/>
+                    <input class="btn btn-default" id="send" type="submit" style="color: rgb(0, 0, 0); padding: 16px" value="Send"/>
                 </span>
                 </div>
             </form>
